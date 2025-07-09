@@ -3,6 +3,7 @@ import com.android.build.gradle.internal.tasks.factory.dependsOn
 plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
+    id("com.google.gms.google-services")
 }
 
 val pluginName = "MobileKit"
@@ -37,7 +38,8 @@ android {
 
 dependencies {
     implementation("org.godotengine:godot:4.4.1.stable")
-    // TODO: Additional dependencies should be added to export_plugin.gd as well.
+    implementation("com.google.firebase:firebase-analytics:22.5.0")
+    implementation("com.google.firebase:firebase-crashlytics:19.4.4")
 }
 
 // BUILD TASKS DEFINITION
