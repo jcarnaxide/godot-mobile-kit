@@ -3,7 +3,6 @@ package com.carnaxide_games.mobile_kit
 import android.app.Activity
 import android.util.Log
 import android.view.View
-import com.google.firebase.FirebaseApp
 import org.godotengine.godot.Godot
 import org.godotengine.godot.plugin.GodotPlugin
 import org.godotengine.godot.plugin.UsedByGodot
