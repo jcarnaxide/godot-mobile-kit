@@ -60,18 +60,4 @@ class GodotAndroidPlugin(godot: Godot): GodotPlugin(godot) {
         firebaseCrashlytics.isCrashlyticsCollectionEnabled = enabled
         Log.d(_TAG, "Analytics collection " + (if (enabled) "enabled" else "disabled"))
     }
-
-    @UsedByGodot
-    private fun testCrash(msg: String = "testCrash") {
-        Log.d(_TAG, "Testing crash with msg=$msg")
-        throw RuntimeException(msg)
-    }
-
-    @UsedByGodot
-    private fun testCrashForceUpload(msg: String = "testCrash") {
-        Log.d(_TAG, "Testing crash with msg=$msg")
-        val isEnabled = firebaseCrashlytics.isCrashlyticsCollectionEnabled
-        Log.d(_TAG, "isCrashlyticsEnabled=$isEnabled")
-        firebaseCrashlytics.recordException(RuntimeException(msg))
-    }
 }

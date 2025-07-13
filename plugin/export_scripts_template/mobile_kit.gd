@@ -19,13 +19,3 @@ func log_event(event: String, params: Dictionary) -> void:
 func set_analytics_collection_enabled(enabled: bool) -> void:
 	if _singleton:
 		_singleton.setAnalyticsCollectionEnabled(enabled)
-
-
-func test_crash(msg: String) -> void:
-	if _singleton:
-		_singleton.testCrash(msg)
-
-
-func test_crash_force_upload(msg: String) -> void:
-	if _singleton:
-		_singleton.testCrashForceUpload(msg)

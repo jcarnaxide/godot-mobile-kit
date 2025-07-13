@@ -4,15 +4,10 @@ extends EditorPlugin
 
 const _plugin_name = "MobileKit"
 
-const FIREBASE_PLUGINS := """\n    \
-//Firebase plugins\n    \
-id 'com.google.gms.google-services'\n    \
-id 'com.google.firebase.crashlytics'\n
-"""
-const FIREBASE_PLUGINS_ROOT := """\n        \
+const FIREBASE_PLUGINS := """\n        \
 //Firebase plugins\n        \
-id 'com.google.gms.google-services' version '4.4.3' apply false\n        \
-id 'com.google.firebase.crashlytics' version '3.0.4' apply false\n
+id 'com.google.gms.google-services' version '4.4.3'\n        \
+id 'com.google.firebase.crashlytics' version '3.0.4'\n
 """
 
 # A class member to hold the editor export plugin during its lifecycle.
@@ -26,15 +21,6 @@ static func _cleanup_plugin() -> void:
 		file.close()
 		file_text = file_text.replace(FIREBASE_PLUGINS, "")
 		file = FileAccess.open("res://android/build/build.gradle", FileAccess.WRITE)
-		file.store_string(file_text)
-		file.close()
-	
-	if FileAccess.file_exists("res://android/build/settings.gradle"):
-		var file := FileAccess.open("res://android/build/settings.gradle", FileAccess.READ)
-		var file_text := file.get_as_text()
-		file.close()
-		file_text = file_text.replace(FIREBASE_PLUGINS_ROOT, "")
-		file = FileAccess.open("res://android/build/settings.gradle", FileAccess.WRITE)
 		file.store_string(file_text)
 		file.close()
 
@@ -71,16 +57,6 @@ class AndroidExportPlugin extends EditorExportPlugin:
 				var search_text := "id 'org.jetbrains.kotlin.android'\n"
 				file_text = file_text.replace(search_text, search_text + FIREBASE_PLUGINS)
 				file = FileAccess.open("res://android/build/build.gradle", FileAccess.WRITE)
-				file.store_string(file_text)
-				file.close()
-			
-			file = FileAccess.open("res://android/build/settings.gradle", FileAccess.READ)
-			file_text = file.get_as_text()
-			file.close()
-			if not file_text.contains("//Firebase plugins"):
-				var search_text := "id 'org.jetbrains.kotlin.android' version versions.kotlinVersion\n"
-				file_text = file_text.replace(search_text, search_text + FIREBASE_PLUGINS_ROOT)
-				file = FileAccess.open("res://android/build/settings.gradle", FileAccess.WRITE)
 				file.store_string(file_text)
 				file.close()
 

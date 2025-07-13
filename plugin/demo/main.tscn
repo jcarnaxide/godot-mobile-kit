@@ -5,15 +5,27 @@
 [node name="Main" type="Node2D"]
 script = ExtResource("1_j0gfq")
 
-[node name="Button" type="Button" parent="."]
-anchors_preset = 14
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = 40.0
-offset_top = 250.0
-offset_right = 320.0
-offset_bottom = 312.0
-text = "Hello World"
+[node name="Control" type="Control" parent="."]
+custom_minimum_size = Vector2(648, 1152)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 648.0
+offset_bottom = 1152.0
 
-[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
+[node name="TestEvent" type="Button" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -152.5
+offset_top = -38.5
+offset_right = 152.5
+offset_bottom = 38.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 75
+text = "TestEvent"
+
+[connection signal="pressed" from="Control/TestEvent" to="." method="_on_test_event_pressed"]

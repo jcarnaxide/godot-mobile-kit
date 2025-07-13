@@ -23,6 +23,12 @@ MobileKit="*res://addons/MobileKit/mobile_kit.gd"
 
 settings/stdout/verbose_stdout=true
 
+[display]
+
+window/size/viewport_width=648
+window/size/viewport_height=1152
+window/handheld/orientation=1
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/MobileKit/plugin.cfg")
