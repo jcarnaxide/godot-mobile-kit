@@ -36,9 +36,9 @@ theme_override_font_sizes/font_size = 100
 text = "TestEvent"
 
 [node name="TestCrash" type="Button" parent="CanvasLayer/Control/VBoxContainer"]
-visible = false
 layout_mode = 2
 theme_override_font_sizes/font_size = 100
-text = "Test Crash"
+text = "TestCrash"
 
 [connection signal="pressed" from="CanvasLayer/Control/VBoxContainer/TestEvent" to="." method="_on_test_event_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/VBoxContainer/TestCrash" to="." method="_on_test_crash_pressed"]
